@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      p{
+        user-select: none;
+      }
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: #333;
+        position: relative; /* Make the container a positioning context */
+        z-index: 0;
+      }
+
+      #c {
+        position: absolute;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      #uiElements {
+        position: absolute;
+        z-index: 12;
+        font-size: 24px;
+        top: calc(50% - 380px); 
+        right: calc(50% - 380px); 
+        height: 80px;
+        Width: 390px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+      }
+
+      #stepSliderContainer {        
+        height: 32px;
+        Width: 60%;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+
+      #xRotationContainer, #yRotationContainer, #zRotationContainer {
+        height: 32px;
+        Width: 100%;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-between;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="c" height="800" width="800"></canvas>
+      <div id="uiElements">
+        <div id="stepSliderContainer">
+          <p>Steps:</p>
+          <input type="range" min="1" max="7" value="1" class="slider" id="stepSlider">
+          <div id="numSteps">1</div>
+        </div>    
+        <div id="xRotationContainer">
+          <p>X-Rotation Speed:</p>
+          <input type="range" min="-5" max="5" value="0" class="slider" id="xRotationSlider" style="width: 160px;">
+          <div id="xRotationValue">0</div>
+        </div>
+        <div id="yRotationContainer">
+          <p>Y-Rotation Speed:</p>
+          <input type="range" min="-5" max="5" value="0" class="slider" id="yRotationSlider" style="width: 160px;">
+          <div id="yRotationValue">0</div>
+        </div>
+        <div id="zRotationContainer">
+          <p>Z-Rotation Speed:</p>
+          <input type="range" min="-5" max="5" value="0" class="slider" id="zRotationSlider" style="width: 160px;">
+          <div id="zRotationValue">0</div>
+        </div>
+        
+      </div>        
+    </div>    
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/gl-matrix@2.4.0/dist/gl-matrix.js"></script>
+  <script src="script.js"></script>  
+</html>
